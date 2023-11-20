@@ -3,22 +3,25 @@
 """Tests for `FTPDataExchange` package."""
 
 import pytest
+from unittest.mock import patch, Mock
 
 
 from FTPDataExchange import FTPDataExchange
 
 
 @pytest.fixture
-def response():
-    """Sample pytest fixture.
+def ftp_data_exchange():
+	# Create an instance of FTPDataExchange with mock FTP connection
+	with patch('ftplib.FTP') as MockFTP:
+		instance = FTPDataExchange('ftp_host', 'ftp_user', 'ftp_passwd')
+		instance.ftp = MockFTP.return_value
+		yield instance
 
-    See more at: http://doc.pytest.org/en/latest/fixture.html
-    """
-    # import requests
-    # return requests.get('https://github.com/audreyr/cookiecutter-pypackage')
+def test_connect_to_remote_success(ftp_data_exchange):
+	# Mock a successful connection
+	with patch.object(ftp_data_exchange.ftp, 'login'):
+		ftp_data_exchange.connect_to_remote()
 
-
-def test_content(response):
-    """Sample pytest test function with the pytest fixture as an argument."""
-    # from bs4 import BeautifulSoup
-    # assert 'GitHub' in BeautifulSoup(response.content).title.string
+	assert ftp_data_exchange.ftp.login.called
+	assert ftp_data_exchange.ftp.set_pasv.called
+	assert ftp_data_exchange.ftp.set_pasv.called == 'woo'
