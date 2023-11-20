@@ -107,3 +107,6 @@ ENV/
 
 # Mac stuff
 .DS_Store
+
+# Temp
+scratch.md
