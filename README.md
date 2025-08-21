@@ -4,7 +4,7 @@
 ### FTPDataExchange Class Walkthrough:
 
 #### Class Overview:
-The `FTPDataExchange` class is designed for managing file transfers and operations on Box using FTP. It utilizes the `ftplib` library for FTP operations.
+The `FTPDataExchange` class is designed for managing file transfers and operations to and from Box using FTP using the `ftplib` library.
 
 #### Attributes:
 - `host (str)`: The FTP host for the Box account.
