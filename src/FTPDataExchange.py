@@ -298,7 +298,7 @@ class FTPDataExchange:
 			print(f'Error: Unable to copy the file. {str(e)}')
 
 
-	def copy_file_local_directory(self, local_directory: str, remote_file_path: str) -> None:
+	def copy_file_to_local_directory(self, local_directory: str, remote_file_path: str) -> None:
 		"""
 		"""
 
