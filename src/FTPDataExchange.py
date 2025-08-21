@@ -304,7 +304,7 @@ class FTPDataExchange:
 
 		print(f'Copying {remote_file_path} to {local_directory}')
 
-		file_name = os.path.basename(remote_file)
+		file_name = os.path.basename(remote_file_path)
 		try:
 			with open(f'{local_directory}/{file_name}', 'wb') as out_file:
 				self.retrbinary('RETR ' + remote_file_path, out_file.write)
