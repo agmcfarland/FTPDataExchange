@@ -35,6 +35,7 @@ The `FTPDataExchange` class is designed for managing file transfers and operatio
 #### Example 1: Initializing and Connecting to Box via FTP
 
 ```python
+import FTPDataExchange
 ftp_manager = FTPDataExchange("ftp.box.com", "your_username", "your_password")
 ftp_manager.connect_to_remote()
 ```
