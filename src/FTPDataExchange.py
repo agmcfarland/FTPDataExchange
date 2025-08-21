@@ -307,7 +307,7 @@ class FTPDataExchange:
 		file_name = os.path.basename(remote_file_path)
 		try:
 			with open(f'{local_directory}/{file_name}', 'wb') as out_file:
-				self.retrbinary('RETR ' + remote_file_path, out_file.write)
+				self.ftp.retrbinary('RETR ' + remote_file_path, out_file.write)
 		except Exception as e:
 			print(f'Error: Unable to copy the file. {str(e)}')
 
